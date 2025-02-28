@@ -1,0 +1,110 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  /*background-color: #e8f5e9;*/
+  text-align: center;
+}
+
+header {
+  /*background-color: #2e7d32;*/
+  color: white;
+  padding: 20px;
+}
+
+header p {
+  font-size: 25px;
+}
+
+section {
+  margin: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+#about h2,
+#carbon-calculator h2,
+#eco-tips h2,
+#city-ranking h2 {
+  font-size: 24px;
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+#tips-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#tips-list li {
+  font-size: 18px;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #f1f8e9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#tips-list li img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  border-radius: 5px;
+  margin-top: 15px;
+  align-self: center;
+}
+
+#tips-list li .tip-description {
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+}
+
+#city-ranking h2 {
+  font-size: 24px;
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+#city-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#city-list li {
+  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f1f8e9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#city-list li:nth-child(odd) {
+  background-color: #dcedc8;
+}
+
+#city-list li span {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+button {
+  background-color: #66bb6a;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #388e3c;
+}
