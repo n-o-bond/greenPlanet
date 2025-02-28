@@ -73,40 +73,27 @@ function loadEcoTips() {
 
 
 async function loadCityRanking() {
-  const apiKey = '5b74c36948d9e0dce91614f2b7bc3374a7190b94';
-  const cities = [
-    'oslo', 'stockholm', 'kyiv', 'london', 'paris', 'new-york',
-    'tokyo', 'berlin', 'amsterdam', 'madrid'
+
+  const cityScores = [
+    { name: "Копенгаген", score: 90, reason: "Місто активно інвестує в зелені технології та планує досягти вуглецевої нейтральності до 2025 року. Близько 29% домогосподарств володіють автомобілями, а більшість мешканців віддають перевагу велосипедам завдяки розвиненій інфраструктурі." },
+    { name: "Стокгольм", score: 88, reason: "Відомий своєю чистотою та ефективною системою громадського транспорту. Місто працює над повною відмовою від викопного палива до 2040 року та використовує біопаливо, вироблене з відходів." },
+    { name: "Осло", score: 85, reason: "Осло активно впроваджує електричний транспорт та інвестує в відновлювані джерела енергії, зокрема гідроенергетику." },
+    { name: "Амстердам", score: 83, reason: "Місто відоме своєю велосипедною культурою та прагне зменшити викиди CO₂ шляхом впровадження електричних транспортних засобів та розширення мережі зарядних станцій." },
+    { name: "Відень", score: 80, reason: "Відень має розвинену систему громадського транспорту та активно підтримує зелені насадження, що сприяє покращенню якості повітря." },
+    { name: "Лондон", score: 75, reason: "Місто впроваджує зони з низьким рівнем викидів, розвиває громадський транспорт та заохочує використання велосипедів." },
+    { name: "Берлін", score: 72, reason: "Берлін має велику кількість парків та зелених зон, а також підтримує ініціативи зі сталого розвитку та енергоефективності." },
+    { name: "Токіо", score: 70, reason: "Токіо інвестує в екологічно чистий транспорт та енергоефективні будівлі, а також активно впроваджує технології зменшення викидів." },
+    { name: "Париж", score: 65, reason: "Париж працює над зменшенням автомобільного трафіку, розширює велосипедну інфраструктуру та впроваджує зелені зони." },
+    { name: "Нью-Йорк", score: 60, reason: "Місто реалізує програми з озеленення, покращення енергоефективності будівель та розвитку громадського транспорту." }
   ];
-  const cityScores = [];
 
-  try {
-    for (let city of cities) {
-      const response = await fetch(`https://api.waqi.info/feed/${city}/?token=${apiKey}`);
-      const data = await response.json();
-
-      if (data.status === 'ok') {
-        cityScores.push({
-          name: city.charAt(0).toUpperCase() + city.slice(1),
-          score: data.data.aqi // AQI (Air Quality Index)
-        });
-      } else {
-        cityScores.push({
-          name: city.charAt(0).toUpperCase() + city.slice(1),
-          score: 'Не доступно'
-        });
-      }
-    }
-
-    const cityList = document.getElementById("city-list");
-    cityScores.forEach(city => {
-      let li = document.createElement("li");
-      const score = city.score === 'Не доступно' ? city.score : `${city.score}%`;
-      li.textContent = `${city.name} - Екологічність: ${score}`;
-      cityList.appendChild(li);
-    });
-
-  } catch (error) {
-    console.error('Помилка завантаження даних про якість повітря:', error);
-  }
+  const cityList = document.getElementById("city-list");
+  cityScores.forEach(city => {
+    let li = document.createElement("li");
+    li.innerHTML = `
+      <div class="city-name">${city.name} - Екологічність: ${city.score}%</div>
+      <p class="reason">${city.reason}</p>
+    `;
+    cityList.appendChild(li);
+  });
 }
